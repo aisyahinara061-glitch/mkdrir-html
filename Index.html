@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>✨ RAKYAT JAYA ✨</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;font-family:'Inter',sans-serif;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,0,80,.15)0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(0,200,255,.12)0%,transparent 60%),radial-gradient(ellipse at 50% 100%,rgba(255,200,0,.05)0%,transparent 50%);z-index:0;pointer-events:none}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02)1px,transparent 1px);background-size:40px 40px}
+.card{position:relative;z-index:2;background:rgba(10,12,30,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.06);border-radius:32px;padding:32px 24px 28px;max-width:420px;width:100%;box-shadow:0 40px 100px rgba(0,0,0,.9),0 0 80px rgba(255,0,80,.05);text-align:center;animation:floatIn .8s ease}
+@keyframes floatIn{0%{opacity:0;transform:translateY(30px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.glow-orb{position:absolute;top:-80px;right:-80px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,0,80,.15),transparent 70%);border-radius:50%;z-index:0;pointer-events:none;animation:orbPulse 4s ease-in-out infinite}
+.glow-orb-2{position:absolute;bottom:-60px;left:-60px;width:160px;height:160px;background:radial-gradient(circle,rgba(0,200,255,.1),transparent 70%);border-radius:50%;z-index:0;pointer-events:none;animation:orbPulse2 5s ease-in-out infinite}
+@keyframes orbPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.2);opacity:1}}
+@keyframes orbPulse2{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.3);opacity:.8}}
+.icon{font-size:52px;margin-bottom:6px;position:relative;z-index:1;filter:drop-shadow(0 0 30px rgba(255,0,80,.2))}
+h1{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:#f0f8ff;letter-spacing:2px;margin-bottom:2px;position:relative;z-index:1}
+h1 span{background:linear-gradient(135deg,#ff0040,#ff6b00,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(255,0,64,.2)}
+.sub{color:#8899bb;font-size:13px;letter-spacing:3px;margin-bottom:20px;position:relative;z-index:1}
+.sub span{color:#ff6b6b}
+.input-group{margin-bottom:14px;text-align:left;position:relative;z-index:1}
+.input-group label{display:block;font-size:11px;color:#8899bb;margin-bottom:4px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.input-group input,.input-group select{width:100%;padding:14px 16px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.06);border-radius:14px;color:#f0f8ff;font-size:15px;outline:0;transition:all .3s ease;font-family:'Inter',sans-serif}
+.input-group input:focus,.input-group select:focus{border-color:#ff0040;box-shadow:0 0 30px rgba(255,0,64,.08),inset 0 0 30px rgba(255,0,64,.02)}
+.input-group select option{background:#0a0a0a;color:#f0f8ff}
+.btn{width:100%;padding:14px;border:0;border-radius:40px;font-weight:700;font-size:14px;cursor:pointer;transition:all .3s ease;margin-bottom:6px;letter-spacing:1px;position:relative;z-index:1;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,#ff0040,#ff2d00);color:#fff;box-shadow:0 4px 30px rgba(255,0,64,.2)}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 6px 40px rgba(255,0,64,.3)}
+.btn-success{background:linear-gradient(135deg,#00ff88,#00cc66);color:#000;box-shadow:0 4px 30px rgba(0,255,136,.15)}
+.btn-success:hover{transform:scale(1.02);box-shadow:0 6px 40px rgba(0,255,136,.25)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.06);color:#f0f8ff}
+.btn-outline:hover{background:rgba(255,255,255,.03)}
+.hidden{display:none !important}
+.welcome-box{background:rgba(255,0,64,.04);border:1px solid rgba(255,0,64,.08);border-radius:16px;padding:16px;margin:12px 0;position:relative;z-index:1}
+.welcome-box .greeting{font-size:20px;font-weight:700;color:#f0f8ff}
+.welcome-box .greeting span{background:linear-gradient(135deg,#ff0040,#ff6b00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.welcome-box .kelas{color:#ffd700;font-weight:600;font-size:16px;margin-top:4px}
+.welcome-box .status{color:#00ff88;font-size:13px;margin-top:6px}
+.rahasia-box{background:rgba(255,215,0,.03);border:1px solid rgba(255,215,0,.08);border-radius:16px;padding:16px;margin:12px 0;text-align:left;position:relative;z-index:1}
+.rahasia-box .label{color:#ffd700;font-weight:600;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.rahasia-box .note{font-size:11px;color:#556688;margin-bottom:8px}
+.result-box{background:rgba(0,0,0,.3);border-radius:16px;padding:16px;text-align:left;margin:12px 0;position:relative;z-index:1}
+.result-box .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.result-box .row:last-child{border-bottom:none}
+.result-box .label{color:#8899bb;font-size:13px}
+.result-box .value{color:#f0f8ff;font-weight:600;font-size:14px}
+.result-box .value.gold{color:#ffd700}
+.telegram-badge{display:inline-block;background:linear-gradient(135deg,#0088cc,#0066aa);color:#fff;font-size:10px;padding:4px 16px;border-radius:40px;letter-spacing:1px;margin-top:4px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(10,12,30,.95);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.06);border-radius:40px;padding:12px 24px;font-size:13px;color:#f0f8ff;box-shadow:0 10px 40px rgba(0,0,0,.6);opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:999;max-width:90%}
+.toast.show{opacity:1}
+.loading{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.1);border-top-color:#ff0040;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scanline{position:fixed;inset:0;z-index:9998;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.01)3px,rgba(255,255,255,.01)4px)}
+.rakyat{position:fixed;bottom:16px;right:20px;font-size:10px;color:rgba(255,255,255,.04);letter-spacing:4px;font-family:'Orbitron',sans-serif;z-index:1;pointer-events:none}
+.video-wrap{position:relative;width:100%;border-radius:16px;overflow:hidden;margin-bottom:16px;background:#000;aspect-ratio:16/9}
+.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:420px){.card{padding:24px 16px 20px}h1{font-size:20px}.icon{font-size:44px}}
+</style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<div class="card">
+    <div class="glow-orb"></div>
+    <div class="glow-orb-2"></div>
+
+    <!-- VIDEO WELCOME -->
+    <div class="video-wrap">
+        <video id="welcomeVideo" autoplay muted loop playsinline>
+            <source src="https://files.catbox.moe/18d7b6.mp4" type="video/mp4">
+            <p style="color:#8899bb;padding:20px;text-align:center">🎬 Video tidak bisa diputar</p>
+        </video>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step1">
+        <div class="icon">🔥</div>
+        <h1>RAKYAT <span>JAYA</span></h1>
+        <p class="sub">✦ <span>SIAP</span> MENJADI PEMIMPIN ✦</p>
+
+        <div class="input-group">
+            <label>📝 Nama Lengkap</label>
+            <input type="text" id="namaInput" placeholder="Contoh: Ghany Ranggoanom" autofocus>
+        </div>
+
+        <div class="input-group">
+            <label>🏫 Kelas</label>
+            <select id="kelasSelect">
+                <option value="">Pilih kelas...</option>
+                <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+                <option value="7D">7D</option><option value="7E">7E</option><option value="7F">7F</option>
+                <option value="7G">7G</option><option value="7H">7H</option><option value="7I">7I</option>
+                <option value="8A">8A</option><option value="8B">8B</option><option value="8C">8C</option>
+                <option value="8D">8D</option><option value="8E">8E</option><option value="8F">8F</option>
+                <option value="8G">8G</option><option value="8H">8H</option><option value="8I">8I</option>
+                <option value="9A">9A</option><option value="9B">9B</option><option value="9C">9C</option>
+                <option value="9D">9D</option><option value="9E">9E</option><option value="9F">9F</option>
+                <option value="9G">9G</option><option value="9H">9H</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" onclick="step2()">🚀 LANJUTKAN</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="hidden">
+        <div class="icon" id="welcomeIcon">⚡</div>
+        <h1>RAKYAT <span>JAYA</span></h1>
+        <p class="sub" id="displayKelas">KELAS 7A</p>
+
+        <div class="welcome-box">
+            <div class="greeting">🔥 <span id="greetingNama">Nama</span></div>
+            <div class="kelas">🏫 KELAS <span id="greetingKelas">7A</span></div>
+            <div class="status">✅ SIAP MENJADI PEMIMPIN!</div>
+        </div>
+
+        <div style="font-size:18px;font-weight:700;color:#f0f8ff;margin:12px 0">
+            APA KABAR, <span id="kabarNama" style="color:#ff0040">NAMA</span>?
+        </div>
+
+        <button class="btn btn-success" onclick="step3()">💬 JAWAB</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="hidden">
+        <div class="icon">🍕</div>
+        <h1>RAKYAT <span>JAYA</span></h1>
+        <p class="sub">MAKANAN FAVORITMU?</p>
+
+        <div class="input-group">
+            <label>🍔 Apa makanan favoritmu?</label>
+            <input type="text" id="makananInput" placeholder="Contoh: Nasi Goreng">
+        </div>
+
+        <button class="btn btn-primary" onclick="step4()">🍽️ JAWAB</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="hidden">
+        <div class="icon">💕</div>
+        <h1>RAKYAT <span>JAYA</span></h1>
+        <p class="sub">🤫 RAHASIA KITA</p>
+
+        <div class="rahasia-box">
+            <div class="label">🔒 Siapa orang yang kamu suka?</div>
+            <p class="note">💭 Cuma kamu yang tau, aman 100%</p>
+            <input type="text" id="crushInput" placeholder="Nama orang yang kamu suka..." style="width:100%;padding:14px 16px;background:rgba(0,0,0,.5);border:1px solid rgba(255,215,0,.08);border-radius:14px;color:#f0f8ff;font-size:15px;outline:0;transition:.3s">
+        </div>
+
+        <button class="btn btn-success" onclick="step5()">🤫 SIMPAN</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div id="step5" class="hidden">
+        <div class="icon">🏆</div>
+        <h1>RAKYAT <span>JAYA</span></h1>
+        <p class="sub">✨ DATA PEMIMPIN ✨</p>
+
+        <div class="result-box">
+            <div class="row"><span class="label">📝 Nama</span><span class="value" id="finalNama">-</span></div>
+            <div class="row"><span class="label">🏫 Kelas</span><span class="value" id="finalKelas">-</span></div>
+            <div class="row"><span class="label">🍔 Makanan Favorit</span><span class="value" id="finalMakanan">-</span></div>
+            <div class="row"><span class="label">💕 Suka Sama</span><span class="value gold" id="finalCrush">-</span></div>
+        </div>
+
+        <div style="background:rgba(255,215,0,.03);border:1px solid rgba(255,215,0,.06);border-radius:12px;padding:10px;margin:10px 0">
+            <p style="font-size:12px;color:#ffd700">🔒 DATA DIKIRIM KE GOOGLE (AMAN)</p>
+            <span class="telegram-badge">📊 GOOGLE SHEET AKTIF</span>
+        </div>
+
+        <button class="btn btn-success" onclick="kirimKeGoogle()" id="btnKirim">📤 KIRIM KE GOOGLE</button>
+        <button class="btn btn-outline" onclick="resetAll()">🔄 MULAI AWAL</button>
+    </div>
+</div>
+
+<div class="rakyat">✦ RAKYAT JAYA ✦</div>
+
+<div class="toast" id="toast">✅ DATA TERSIMPAN!</div>
+
+<script>
+// ============================================================
+//  🔥  JS LENGKAP - GOOGLE INTEGRATION + IMAGE  🔥
+// ============================================================
+
+// ===== KONFIGURASI =====
+// GANTI URL INI DENGAN WEB APP URL DARI GOOGLE APPS SCRIPT LO
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXXXXXXXXXXXXX/exec';
+
+// LINK GAMBAR / VIDEO YANG MAU DIKIRIM BAREng DATA
+const IMAGE_URL = 'https://files.catbox.moe/18d7b6.mp4';
+
+// ===== VARIABEL GLOBAL =====
+let userData = { nama: '', kelas: '', makanan: '', crush: '' };
+
+// ===== TOAST NOTIFICATION =====
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ===== STEP 2 =====
+function step2() {
+    const nama = document.getElementById('namaInput').value.trim();
+    const kelas = document.getElementById('kelasSelect').value;
+    if (!nama) { showToast('⚠️ Masukkan nama dulu!'); document.getElementById('namaInput').focus(); return; }
+    if (!kelas) { showToast('⚠️ Pilih kelas dulu!'); document.getElementById('kelasSelect').focus(); return; }
+
+    userData.nama = nama;
+    userData.kelas = kelas;
+
+    document.getElementById('displayKelas').textContent = 'KELAS ' + kelas;
+    document.getElementById('greetingNama').textContent = nama;
+    document.getElementById('greetingKelas').textContent = kelas;
+    document.getElementById('kabarNama').textContent = nama.toUpperCase();
+
+    const icon = document.getElementById('welcomeIcon');
+    if (kelas.startsWith('7')) icon.textContent = '🌟';
+    else if (kelas.startsWith('8')) icon.textContent = '🚀';
+    else icon.textContent = '🎯';
+
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+    showToast('🔥 HAI ' + nama.toUpperCase() + '!');
+}
+
+// ===== STEP 3 =====
+function step3() {
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.remove('hidden');
+    document.getElementById('makananInput').focus();
+}
+
+// ===== STEP 4 =====
+function step4() {
+    const makanan = document.getElementById('makananInput').value.trim();
+    if (!makanan) { showToast('⚠️ Kasih tau makanan favoritmu dong!'); document.getElementById('makananInput').focus(); return; }
+    userData.makanan = makanan;
+    document.getElementById('step3').classList.add('hidden');
+    document.getElementById('step4').classList.remove('hidden');
+    document.getElementById('crushInput').focus();
+    showToast('🍔 MAKANAN FAVORIT: ' + makanan);
+}
+
+// ===== STEP 5 =====
+function step5() {
+    const crush = document.getElementById('crushInput').value.trim() || '(RAHASIA)';
+    userData.crush = crush;
+
+    document.getElementById('finalNama').textContent = userData.nama;
+    document.getElementById('finalKelas').textContent = userData.kelas;
+    document.getElementById('finalMakanan').textContent = userData.makanan;
+    document.getElementById('finalCrush').textContent = crush;
+
+    document.getElementById('step4').classList.add('hidden');
+    document.getElementById('step5').classList.remove('hidden');
+    showToast('🤫 RAHASIA TERSIMPAN!');
+}
+
+// ===== KIRIM KE GOOGLE =====
+function kirimKeGoogle() {
+    const btn = document.getElementById('btnKirim');
+    btn.innerHTML = '<span class="loading"></span> MENGIRIM...';
+    btn.disabled = true;
+
+    const payload = {
+        nama: userData.nama,
+        kelas: userData.kelas,
+        makanan: userData.makanan,
+        crush: userData.crush,
+        gambar: IMAGE_URL,
+        timestamp: new Date().toLocaleString('id-ID')
+    };
+
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        showToast('✅ BERHASIL DIKIRIM KE GOOGLE!');
+        btn.innerHTML = '✅ TERKIRIM!';
+        btn.disabled = false;
+    })
+    .catch(err => {
+        showToast('❌ ERROR: ' + err.message);
+        btn.innerHTML = '📤 KIRIM KE GOOGLE';
+        btn.disabled = false;
+    });
+}
+
+// ===== RESET =====
+function resetAll() {
+    document.getElementById('step5').classList.add('hidden');
+    document.getElementById('step1').classList.remove('hidden');
+    document.getElementById('namaInput').value = '';
+    document.getElementById('kelasSelect').value = '';
+    document.getElementById('makananInput').value = '';
+    document.getElementById('crushInput').value = '';
+    document.getElementById('btnKirim').innerHTML = '📤 KIRIM KE GOOGLE';
+    document.getElementById('btnKirim').disabled = false;
+    document.getElementById('namaInput').focus();
+    showToast('🔄 RESET!');
+}
+
+// ===== VIDEO FALLBACK =====
+const video = document.getElementById('welcomeVideo');
+video.addEventListener('error', function() {
+    console.log('Video error, pake fallback');
+    this.innerHTML = '<p style="color:#8899bb;padding:20px;text-align:center">🎬 Video welcome tidak tersedia</p>';
+});
+
+// ===== ENTER KEY SUPPORT =====
+document.getElementById('namaInput').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('kelasSelect').focus(); });
+document.getElementById('kelasSelect').addEventListener('keydown', e => { if (e.key === 'Enter') step2(); });
+document.getElementById('makananInput').addEventListener('keydown', e => { if (e.key === 'Enter') step4(); });
+document.getElementById('crushInput').addEventListener('keydown', e => { if (e.key === 'Enter') step5(); });
+</script>
+</body>
+  </html>
