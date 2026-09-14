@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; }
+        input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus { border-color: #667eea; }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #764ba2; }
+        #pesan {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            color: red;
+        }
+        .hidden { display: none; }
+        #dashboard {
+            text-align: center;
+        }
+        #dashboard h1 { color: #27ae60; }
+    </style>
+</head>
+<body>
+
+<div class="box" id="loginBox">
+    <h1>🔐 Login</h1>
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Masuk</button>
+    <div id="pesan"></div>
+</div>
+
+<div class="box hidden" id="dashboard">
+    <h1>✅ Berhasil!</h1>
+    <p id="welcome"></p>
+</div>
+
+<script>
+    // KONFIGURASI
+    const GITHUB_USER = "username";  // GANTI!
+    const GITHUB_REPO = "nama-repo";  // GANTI!
+    const GITHUB_FILE = "users.json";
+    
+    async function login() {
+        const nama = document.getElementById("nama").value.trim().toLowerCase();
+        const password = document.getElementById("password").value.trim();
+        const pesan = document.getElementById("pesan");
+        
+        if (!nama || !password) {
+            pesan.innerText = "Isi nama dan password!";
+            return;
+        }
+        
+        pesan.innerText = "⏳ Loading...";
+        
+        try {
+            // Ambil data dari GitHub
+            const url = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/${GITHUB_FILE}`;
+            const res = await fetch(url + "?t=" + Date.now());
+            const data = await res.json();
+            
+            // Cek user
+            const user = data.users.find(u => u.nama === nama && u.password === password);
+            
+            if (user) {
+                pesan.style.color = "green";
+                pesan.innerText = "✅ Login berhasil!";
+                
+                // Tampilkan dashboard
+                document.getElementById("loginBox").classList.add("hidden");
+                document.getElementById("dashboard").classList.remove("hidden");
+                document.getElementById("welcome").innerText = `Selamat datang, ${user.nama}!`;
+                
+                // Simpen session
+                localStorage.setItem("user", JSON.stringify(user));
+            } else {
+                pesan.style.color = "red";
+                pesan.innerText = "❌ Nama atau password salah!";
+            }
+        } catch (e) {
+            pesan.style.color = "red";
+            pesan.innerText = "❌ Error: " + e.message;
+        }
+    }
+    
+    // Enter buat login
+    document.getElementById("password").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") login();
+    });
+</script>
+
+</body>
+</html>
