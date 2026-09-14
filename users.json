@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "nama": "azka",
+      "password": "12345",
+      "created": "2026-09-14T10:00:00"
+    },
+    {
+      "nama": "budi",
+      "password": "budi123",
+      "created": "2026-09-14T10:05:00"
+    }
+  ]
+}
